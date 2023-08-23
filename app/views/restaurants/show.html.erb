@@ -1,0 +1,17 @@
+<div class="container bg-light">
+  <h1><%= @restaurant.name %></h1>
+  <h2>Address:</h2>
+  <p><%= @restaurant.address  %></p>
+  <h2>Phone Number:</h2>
+  <p><%= @restaurant.phone_number %></p>
+  <h2>Category</h2>
+  <p><%= @restaurant.category %></p>
+  <h2>Reviews:</h2>
+  <%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary m-2" %>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item "><%= review.stars %> <%= review.content %></li>
+    <% end %>
+  </ul>
+  <%= link_to "Back to restaurant list", restaurants_path, class: "btn btn-primary m-2"%>
+</div>
